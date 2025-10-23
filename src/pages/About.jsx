@@ -9,7 +9,8 @@ const reveal = {
 const About = () => {
   usePageMetadata({
     title: 'About',
-    description: 'Learn about RedOffset’s mission, methodology, and leadership behind our red team operations.'
+    description:
+      'Learn about RedOffset’s mission, methodology, and leadership delivering converged red team operations with MITRE- and NIST-aligned rigor.'
   });
 
   return (
@@ -27,7 +28,7 @@ const About = () => {
             <p className="font-mono text-xs uppercase tracking-[0.4em] text-ember">Our Mission</p>
             <h1 className="font-mono text-4xl text-zinc-100 sm:text-5xl">Offset the Threat Curve</h1>
             <p className="text-base text-zinc-400">
-              RedOffset is a collective of former special operations, intelligence, and enterprise security operators. We exist to keep your organization ahead of sophisticated attackers by combining offensive discipline with executive-ready intelligence.
+              RedOffset is a collective of former special operations, intelligence, and enterprise security operators. We rehearse each engagement in our range facilities before stepping into your environment, delivering the precision you expect from an elite red team.
             </p>
           </motion.div>
           <motion.div
@@ -39,10 +40,13 @@ const About = () => {
             className="space-y-4 text-sm text-zinc-400"
           >
             <p>
-              We embed with your defenders, observe command decisions, and escalate pressure across physical and cyber domains. The goal is not chaos—it’s clarity for leadership on where to invest, how to restructure processes, and which threats matter most.
+              We embed with your defenders, observe command decisions, and escalate pressure across physical, human, and cyber domains. The objective is clarity for leadership—where controls fail, which detections lag, and how processes withstand determined adversaries.
             </p>
             <p>
               Engagements culminate in detailed tradecraft reconstructions, executive briefings, and long-term partnership. We operate discreetly, ethically, and with the accountability expected of trusted advisors.
+            </p>
+            <p>
+              Our methodology aligns with MITRE ATT&CK, NIST 800-53, PTES, and industry red team best practices. Purple team integrations ensure defenders sharpen detections during and after the operation, not months later.
             </p>
           </motion.div>
           <motion.ul
@@ -55,9 +59,9 @@ const About = () => {
           >
             {[
               'Global red team operations since 2014',
-              'Cell-based operators with TS/SCI experience',
-              'Reporting aligned to MITRE ATT&CK and executive risk',
-              'Trusted by Fortune 200 security leaders'
+              'Cell-based operators with TS/SCI and law enforcement backgrounds',
+              'Rules of engagement tailored to each organization’s risk appetite',
+              'Reporting aligned to MITRE ATT&CK, NIST 800-53, and executive risk'
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-zinc-300">
                 <span className="mt-1 h-2 w-2 rounded-full bg-ember" aria-hidden="true" />

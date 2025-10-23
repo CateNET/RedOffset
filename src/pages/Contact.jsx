@@ -11,7 +11,7 @@ const Contact = () => {
 
   usePageMetadata({
     title: 'Contact',
-    description: 'Engage with RedOffset to scope bespoke red team operations and executive security programs.'
+    description: 'Coordinate with RedOffset to scope bespoke red team operations, residential security, and executive protection exercises.'
   });
 
   const validate = () => {
@@ -60,7 +60,7 @@ const Contact = () => {
           <p className="font-mono text-xs uppercase tracking-[0.4em] text-ember">Contact</p>
           <h1 className="font-mono text-4xl text-zinc-100 sm:text-5xl">Coordinate an Operation</h1>
           <p className="text-base text-zinc-400">
-            Brief us on your threat scenarios, attack surface, and executive priorities. We will respond with a tailored engagement outline and operator roster.
+            Brief us on your threat scenarios, attack surface, and executive priorities. We respond within one business day with a tailored engagement outline, draft rules of engagement, and operator roster.
           </p>
           <div className="space-y-3 text-sm text-zinc-400">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">Direct Channels</p>
@@ -70,6 +70,7 @@ const Contact = () => {
             </p>
             <p>
               Offices in San Jose, Austin, and Washington D.C.
+              <br />PGP on request for pre-engagement scoping.
             </p>
           </div>
         </div>
