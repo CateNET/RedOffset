@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-night text-zinc-100 font-sans antialiased;
+  background-image: radial-gradient(circle at 1px 1px, rgba(220, 38, 38, 0.08) 1px, transparent 0), radial-gradient(circle at 50px 50px, rgba(220, 38, 38, 0.06) 1px, transparent 0);
+  background-size: 120px 120px;
+}
+
+::-moz-selection {
+  background-color: rgba(220, 38, 38, 0.6);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgba(220, 38, 38, 0.6);
+  color: #fff;
+}
+
+a {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-night;
+}
+
+button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-night;
+}
+
+header {
+  backdrop-filter: blur(10px);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+}
+
+.glitch::before {
+  transform: translate(-1px, 1px);
+  color: rgba(220, 38, 38, 0.6);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%);
+}
+
+.glitch::after {
+  transform: translate(1px, -1px);
+  color: rgba(220, 38, 38, 0.3);
+  clip-path: polygon(0 65%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  animation: glitch 4.5s infinite;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(220, 38, 38, 0.16), rgba(15, 15, 15, 0.9)),
+    repeating-linear-gradient(60deg, rgba(220, 38, 38, 0.06) 0px, rgba(220, 38, 38, 0.06) 2px, transparent 2px, transparent 12px);
+  animation: gridMove 35s linear infinite;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: -200%;
+  left: 50%;
+  width: 2px;
+  height: 300%;
+  background: linear-gradient(to bottom, transparent, rgba(220, 38, 38, 0.2), transparent);
+  animation: rain 12s linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateX(-50%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(100%);
+  }
+}
