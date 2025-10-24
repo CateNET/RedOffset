@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { BuildingOffice2Icon, CpuChipIcon, FingerPrintIcon, ShieldCheckIcon, UsersIcon } from '@heroicons/react/24/outline';
 import usePageMetadata from '../hooks/usePageMetadata.js';
+import TacticsCoverage from '../components/TacticsCoverage.jsx';
+import HUDCorners from '../components/HUDCorners.jsx';
 
 const services = [
   {
@@ -99,17 +101,25 @@ const Services = () => {
             Our converged teams execute physical, human, and cyber intrusion scenarios in tandem. Each mission is scoped for operational realism, executive clarity, and measurable uplift to your security program.
           </p>
         </div>
+
+        <TacticsCoverage className="mt-2" />
+
         <div className="grid gap-8 md:grid-cols-2">
           {services.map((service) => (
             <motion.article
               key={service.title}
-              whileHover={{ rotateX: 2, rotateY: -2, translateY: -6 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-              className="group relative overflow-hidden rounded border border-zinc-900 bg-gradient-to-br from-steel/80 to-night/80 p-8"
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+              className="group relative overflow-hidden rounded-xl border border-zinc-900 bg-gradient-to-br from-steel/80 to-night/80 p-8"
             >
+              <HUDCorners />
               <div className="absolute inset-0 -z-10 bg-gradient-to-br from-ember/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <service.icon className="h-8 w-8 text-ember" aria-hidden="true" />
-              <h2 className="mt-6 font-mono text-2xl text-zinc-100">{service.title}</h2>
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-ember/30 bg-black/30">
+                  <service.icon className="h-6 w-6 text-ember" aria-hidden="true" />
+                </div>
+                <h2 className="font-mono text-2xl text-zinc-100">{service.title}</h2>
+              </div>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{service.summary}</p>
               <ul className="mt-5 space-y-2 text-sm text-zinc-500">
                 {service.capabilities.map((item) => (
@@ -119,6 +129,13 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {['MITRE', 'NIST', 'CIS'].map((b) => (
+                  <span key={b} className="rounded border border-zinc-800 bg-black/30 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-400">
+                    {b}
+                  </span>
+                ))}
+              </div>
             </motion.article>
           ))}
         </div>

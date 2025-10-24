@@ -25,7 +25,7 @@ const About = () => {
         <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6 py-16 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.4em] text-ember">Inside RedOffset</p>
           <h1 className="font-mono text-4xl text-zinc-100 sm:text-5xl">Operators | Intelligence | Assurance</h1>
-          <TypewriterCycle phrases={["Plan | Rehearse | Execute | Debrief | Improve", "OpSec | Governance | Evidence | Reporting"]} typingSpeed={65} pause={1300} />
+          <TypewriterCycle phrases={["Plan | Rehearse | Execute | Debrief | Improve","OpSec | Governance | Evidence | Reporting"]} typingSpeed={65} pause={1300} />
         </div>
       </div>
 
@@ -42,19 +42,16 @@ const About = () => {
           >
             <HUDCorners />
             <p className="font-mono text-xs uppercase tracking-[0.4em] text-ember">Our Mission</p>
-            <h2 className="mt-2 font-mono text-4xl text-zinc-100 sm:text-5xl">Offset the Threat Curve</h2>
+            <h1 className="mt-2 font-mono text-4xl text-zinc-100 sm:text-5xl">Offset the Threat Curve</h1>
             <p className="mt-3 text-base text-zinc-400">
-              RedOffset runs converged red‑team operations across physical, social, and cyber domains to reveal real‑world weaknesses before adversaries do. Campaigns are planned with your leaders, rehearsed for safety, and executed with disciplined OpSec.
-            </p>
-            <p className="mt-3 text-base text-zinc-400">
-              Outcomes focus on defender uplift and executive clarity: mapped detections, prioritized fixes with owners and effort, and measurable reductions in exposure window.
+              We execute converged red team operations � physical, social, and cyber � to surface real-world security gaps, improve detection and response, and provide executive-ready clarity. Every operation is scoped, rehearsed, and governed.
             </p>
             <ul className="mt-5 grid gap-3 text-sm text-zinc-300 sm:grid-cols-2">
               {[
                 'Rehearsed operations with strict OpSec and safety controls',
-                'Purple-team collaboration to uplift detections during the op',
+                'Purple‑team collaboration to uplift detections during the op',
                 'Executive reports with risk deltas and ownership',
-                'Traceable mapping to MITRE/NIST/CIS (non-procedural)'
+                'Traceable mapping to MITRE/NIST/CIS (non‑procedural)'
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-ember" aria-hidden="true" />
@@ -95,12 +92,7 @@ const About = () => {
 
         {/* KPI row */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { label: 'Years Operating', from: 0, to: 10, suffix: '+' },
-            { label: 'Operations Completed', from: 80, to: 350, suffix: '+' },
-            { label: 'Detections Tuned', from: 200, to: 1200, suffix: '+' },
-            { label: 'Playbooks Delivered', from: 50, to: 260, suffix: '+' }
-          ].map((kpi) => (
+          {[{label:'Years Operating',from:0,to:10,suffix:'+'},{label:'Operations Completed',from:80,to:350,suffix:'+'},{label:'Detections Tuned',from:200,to:1200,suffix:'+'},{label:'Playbooks Delivered',from:50,to:260,suffix:'+'}].map((kpi)=> (
             <div key={kpi.label} className="rounded-xl border border-zinc-900 bg-gradient-to-b from-steel/70 to-night/70 p-5">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">{kpi.label}</p>
               <KPICounter from={kpi.from} to={kpi.to} suffix={kpi.suffix} duration={1100} className="mt-1 block font-mono text-3xl text-ember" />
@@ -112,7 +104,7 @@ const About = () => {
         <MethodTimeline
           steps={[
             { title: 'Plan', objective: 'Align scenarios, safety controls, and RoE.', signals: ['Approved windows and escalation paths'] },
-            { title: 'Rehearse', objective: 'Dry-run routes and comms to reduce risk.', signals: ['Operator checklists validated'] },
+            { title: 'Rehearse', objective: 'Dry‑run routes and comms to reduce risk.', signals: ['Operator checklists validated'] },
             { title: 'Execute', objective: 'Run scenarios under OpSec with tight comms.', signals: ['Detections and workflow observations'] },
             { title: 'Debrief', objective: 'Reconstruct tradecraft and tune detections.', signals: ['Updated alerts and playbooks'] },
             { title: 'Improve', objective: 'Deliver fixes and retest if desired.', signals: ['Reduced exposure window'] }
@@ -131,4 +123,7 @@ const About = () => {
 };
 
 export default About;
+
+
+
 
