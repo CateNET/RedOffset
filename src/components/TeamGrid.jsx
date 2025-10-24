@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const defaultMembers = [
-  { name: 'A. Rivera', role: 'Ops Lead', focus: ['Physical', 'OpsSec'], bio: 'Leads physical and multi‑domain coordination. Emphasis on rehearsals, safety controls, and discreet execution.', creds: ['Facilities Assessments', 'Incident Response Partnering'] },
-  { name: 'J. Malik', role: 'Adversary Simulation', focus: ['Cyber', 'Purple'], bio: 'Designs cyber behaviors mapped to ATT&CK at a tactic/technique name level. Partners with blue teams for tuning.', creds: ['ATT&CK Mapping', 'Detection Engineering'] },
-  { name: 'K. Lin', role: 'Social Engineering', focus: ['Human', 'OSINT'], bio: 'Builds credible, policy‑aligned pretexts with clear escalation paths and review checkpoints.', creds: ['Awareness Training', 'Process Hardening'] },
-  { name: 'D. Santos', role: 'Residential Ops', focus: ['Estate', 'IoT/Wi‑Fi'], bio: 'Coordinates estate risk reviews with EP leads. Practical, privacy‑respecting improvements and training.', creds: ['EP Coordination', 'Segmentation Reviews'] },
-  { name: 'S. Patel', role: 'Reporting & Risk', focus: ['Executive', 'Metrics'], bio: 'Transforms operational findings into executive clarity with risk deltas, ownership, and timeline options.', creds: ['Board Reporting', 'Risk Modeling'] },
-  { name: 'R. Okoye', role: 'Intelligence & QA', focus: ['Intel', 'QA'], bio: 'Keeps scenarios current and safe, maintaining QA checklists and post‑op validation.', creds: ['Threat Intel', 'QA & Evidence Handling'] }
+  { name: 'A. Rivera', role: 'Ops Lead', focus: ['Physical', 'OpSec'], background: 'Former facilities assessor and incident responder; coordinates multi‑domain entries under strict governance.', bio: 'Leads physical and multi‑domain coordination. Emphasis on rehearsals, safety controls, and discreet execution.', creds: ['Facilities Assessments', 'Incident Response Partnering'], certs: ['OSCP', 'PNPT'] },
+  { name: 'J. Malik', role: 'Adversary Simulation', focus: ['Cyber', 'Purple'], background: 'Ex‑blue team engineer transitioned to red, focused on signal‑rich behaviors and defender uplift.', bio: 'Designs adversary behaviors mapped to ATT&CK (tactic/technique names only). Partners with blue teams for tuning.', creds: ['ATT&CK Mapping', 'Detection Engineering'], certs: ['CRTO', 'GXPN'] },
+  { name: 'K. Lin', role: 'Social Engineering', focus: ['Human', 'OSINT'], background: 'Human‑factors specialist; designs policy‑aligned pretexts with legal review and escalation paths.', bio: 'Builds credible pretexts without surprise or harm and measures process resilience.', creds: ['Awareness Training', 'Process Hardening'], certs: ['GCTI'] },
+  { name: 'D. Santos', role: 'Residential Ops', focus: ['Estate', 'Wi‑Fi/IoT'], background: 'Residential risk assessor coordinating with EP; privacy‑respecting improvements and staff training.', bio: 'Coordinates estate posture reviews, segmentation checks, and practical mitigations.', creds: ['EP Coordination', 'Segmentation Reviews'], certs: ['OSEP'] },
+  { name: 'S. Patel', role: 'Reporting & Risk', focus: ['Executive', 'Metrics'], background: 'Risk and reporting lead; converts findings into board narratives with measurable deltas.', bio: 'Transforms findings into executive clarity with risk, ownership, and timelines.', creds: ['Board Reporting', 'Risk Modeling'], certs: ['CISSP'] },
+  { name: 'R. Okoye', role: 'Intelligence & QA', focus: ['Intel', 'QA'], background: 'Threat intel + QA; maintains checklists, reviews, and post‑op validation to keep scenarios current and safe.', bio: 'Keeps scenarios current and safe with QA and evidence hygiene.', creds: ['Threat Intel', 'QA & Evidence Handling'], certs: ['OSCP'] }
 ];
 
 const TeamGrid = ({ members = defaultMembers }) => {
@@ -36,7 +36,7 @@ const TeamGrid = ({ members = defaultMembers }) => {
                 <span key={f} className="rounded border border-zinc-800 bg-black/30 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-400">{f}</span>
               ))}
             </div>
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">{m.bio}</p>
+            <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-zinc-400">{m.background}</p>
           </button>
         ))}
       </div>
@@ -86,6 +86,16 @@ const TeamGrid = ({ members = defaultMembers }) => {
                       <li key={i}>{c}</li>
                     ))}
                   </ul>
+                </div>
+              ) : null}
+              {open.certs?.length ? (
+                <div className="mt-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">Certifications</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {open.certs.map((c) => (
+                      <span key={c} className="rounded border border-zinc-800 bg-black/30 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-400">{c}</span>
+                    ))}
+                  </div>
                 </div>
               ) : null}
               <div className="mt-6 flex justify-end">

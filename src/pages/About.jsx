@@ -6,6 +6,8 @@ import KPICounter from '../components/KPICounter.jsx';
 import TeamGrid from '../components/TeamGrid.jsx';
 import MatrixRain from '../components/MatrixRain.jsx';
 import TypewriterCycle from '../components/TypewriterCycle.jsx';
+import TrustStrip from '../components/TrustStrip.jsx';
+import CertificationsStrip from '../components/CertificationsStrip.jsx';
 
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -29,7 +31,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-6xl space-y-16 px-6 py-20">
+      <div className="mx-auto w-full max-w-6xl space-y-14 px-6 py-20">
+        <TrustStrip />
         {/* Mission + Assurance grid */}
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <motion.div
@@ -125,10 +128,12 @@ const About = () => {
           <p className="text-sm text-zinc-400">A multidisciplinary team with experience across facilities assessment, social engineering, adversary simulation, and executive reporting. Profiles are illustrative and privacy‑respecting.</p>
           <TeamGrid />
         </div>
+
+        {/* Certifications */}
+        <CertificationsStrip />
       </div>
     </section>
   );
 };
 
 export default About;
-
