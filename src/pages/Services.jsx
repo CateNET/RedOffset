@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { BuildingOffice2Icon, CpuChipIcon, FingerPrintIcon, ShieldCheckIcon, UsersIcon } from '@heroicons/react/24/outline';
 import usePageMetadata from '../hooks/usePageMetadata.js';
 import TacticsCoverage from '../components/TacticsCoverage.jsx';
@@ -92,18 +92,33 @@ const Services = () => {
   });
 
   return (
-    <section className="bg-night py-24">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
-        <div className="max-w-3xl space-y-4">
+    <section className="relative bg-night py-24">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_300px_at_50%_-10%,rgba(220,38,38,0.12),transparent)]" aria-hidden="true" />
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+        {/* Mini hero */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-5 text-center"
+        >
           <p className="font-mono text-xs uppercase tracking-[0.4em] text-ember">Services</p>
           <h1 className="font-mono text-4xl text-zinc-100 sm:text-5xl">Red Team Disciplines</h1>
-          <p className="text-base text-zinc-400">
+          <p className="mx-auto max-w-3xl text-sm text-zinc-400">
             Our converged teams execute physical, human, and cyber intrusion scenarios in tandem. Each mission is scoped for operational realism, executive clarity, and measurable uplift to your security program.
           </p>
-        </div>
+          <div className="flex flex-wrap items-center justify-center gap-2" aria-label="Disciplines">
+            {["Physical","Social","Cyber","Residential"].map((t) => (
+              <span key={t} className="cursor-default select-none rounded-full border border-zinc-900 bg-black/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">{t}</span>
+            ))}
+          </div>
+        </motion.div>
 
+        {/* Detection coverage */}
         <TacticsCoverage className="mt-2" />
 
+        {/* Service cards */}
         <div className="grid gap-8 md:grid-cols-2">
           {services.map((service) => (
             <motion.article
@@ -139,6 +154,8 @@ const Services = () => {
             </motion.article>
           ))}
         </div>
+
+        {/* Assurance + Sectors */}
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.section
             initial={{ opacity: 0, y: 24 }}

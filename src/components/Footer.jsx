@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import Logo from './Logo.jsx';
 
 const Footer = () => {
   return (
@@ -7,10 +8,8 @@ const Footer = () => {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-12 md:flex-row md:justify-between">
         <div className="max-w-md space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded border border-ember/60 bg-steel/60">
-              <span className="font-mono text-lg text-ember">RO</span>
-            </div>
-            <p className="font-mono text-lg text-zinc-200">Adversaries Simulated. Threats Offset.</p>
+            <Logo />
+            <p className="font-mono text-lg text-zinc-200">RedOffset: Before They Do</p>
           </div>
           <p className="text-sm text-zinc-400">
             We partner with executive leadership and security teams to expose blind spots across digital, physical, and human vectors.
@@ -22,8 +21,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-zinc-300">
                 <EnvelopeIcon className="h-4 w-4 text-ember" aria-hidden="true" />
-                <a href="mailto:operations@redoffset.io" className="hover:text-ember">
-                  operations@redoffset.io
+                <a href="mailto:ops@redoffset.com" className="hover:text-ember">
+                  ops@redoffset.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-zinc-300">
@@ -31,6 +30,9 @@ const Footer = () => {
                 <a href="tel:+14085550199" className="hover:text-ember">
                   +1 (408) 555-0199
                 </a>
+              </li>
+              <li className="text-zinc-400">
+                United States coverage — all 50 states. Headquarters in Los Angeles, California.
               </li>
             </ul>
           </div>

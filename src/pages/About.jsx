@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import usePageMetadata from '../hooks/usePageMetadata.js';
 import MethodTimeline from '../components/MethodTimeline.jsx';
 import HUDCorners from '../components/HUDCorners.jsx';
@@ -49,15 +49,13 @@ const About = () => {
             <p className="mt-3 text-base text-zinc-400">
               RedOffset runs converged red‑team operations across physical, social, and cyber domains to reveal real‑world weaknesses before adversaries do. Campaigns are planned with your leaders, rehearsed for safety, and executed with disciplined OpSec.
             </p>
-            <p className="mt-3 text-base text-zinc-400">
-              Outcomes focus on defender uplift and executive clarity: mapped detections, prioritized fixes with owners and effort, and measurable reductions in exposure window.
-            </p>
+            <p className="mt-3 text-base text-zinc-400">Outcomes: executive clarity, prioritized fixes, reduced exposure.</p>
             <ul className="mt-5 grid gap-3 text-sm text-zinc-300 sm:grid-cols-2">
               {[
                 'Rehearsed operations with strict OpSec and safety controls',
                 'Purple-team collaboration to uplift detections during the op',
                 'Executive reports with risk deltas and ownership',
-                'Traceable mapping to MITRE/NIST/CIS (non-procedural)'
+                'Traceable mapping to MITRE/NIST/CIS'
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-ember" aria-hidden="true" />
@@ -89,7 +87,7 @@ const About = () => {
                 </div>
                 <div className="rounded border border-zinc-900 bg-black/30 p-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">Reporting</p>
-                  <p className="mt-1">Executive narrative, technique‑to‑signal mapping (non‑procedural), and prioritized fixes with estimated risk deltas.</p>
+                  <p className="mt-1">Executive narrative, technique‑to‑signal mapping, and prioritized fixes with estimated risk deltas.</p>
                 </div>
               </div>
             </div>
@@ -99,10 +97,10 @@ const About = () => {
         {/* KPI row */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { label: 'Years Operating', from: 0, to: 10, suffix: '+' },
-            { label: 'Operations Completed', from: 80, to: 350, suffix: '+' },
-            { label: 'Detections Tuned', from: 200, to: 1200, suffix: '+' },
-            { label: 'Playbooks Delivered', from: 50, to: 260, suffix: '+' }
+            { label: 'Years Operating', from: 0, to: 5, suffix: '+' },
+            { label: 'Operations Completed', from: 60, to: 150, suffix: '+' },
+            { label: 'Detections Tuned', from: 100, to: 700, suffix: '+' },
+            { label: 'Playbooks Delivered', from: 30, to: 180, suffix: '+' }
           ].map((kpi) => (
             <div key={kpi.label} className="rounded-xl border border-zinc-900 bg-gradient-to-b from-steel/70 to-night/70 p-5">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">{kpi.label}</p>
@@ -125,7 +123,7 @@ const About = () => {
         {/* Team section */}
         <div className="space-y-4">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-ember">Team</p>
-          <p className="text-sm text-zinc-400">A multidisciplinary team with experience across facilities assessment, social engineering, adversary simulation, and executive reporting. Profiles are illustrative and privacy‑respecting.</p>
+          <p className="text-sm text-zinc-400">We’re a multidisciplinary crew with backgrounds in physical intrusion, social engineering, and cyber operations. Several of our operators are former offensive practitioners who now work on the right side of the fence—using the adversary’s playbook to anticipate moves, reproduce realistic paths, and help your defenders close them fast.</p>
           <TeamGrid />
         </div>
 
@@ -137,3 +135,4 @@ const About = () => {
 };
 
 export default About;
+

@@ -10,7 +10,133 @@ const defaultMembers = [
   { name: 'R. Okoye', role: 'Intelligence & QA', focus: ['Intel', 'QA'], background: 'Threat intel + QA; maintains checklists, reviews, and post‑op validation to keep scenarios current and safe.', bio: 'Keeps scenarios current and safe with QA and evidence hygiene.', creds: ['Threat Intel', 'QA & Evidence Handling'], certs: ['OSCP'] }
 ];
 
-const TeamGrid = ({ members = defaultMembers }) => {
+const realisticMembers = [
+  {
+    name: 'Edmond C.',
+    role: 'Team Operator',
+    focus: ['Cyber', 'OpSec'],
+    background:
+      'Former underground hacker who shifted to defense; now leads operator discipline and tradecraft integration.',
+    bio:
+      'Ex-offense turned trusted operator. Plans end-to-end scenarios and keeps teams safe, legal, and signal-rich.',
+    creds: ['Campaign Planning', 'Tradecraft Integration'],
+    certs: ['OSCP', 'CRTO']
+  },
+  {
+    name: 'Alex V.',
+    role: 'Physical Intrusion',
+    focus: ['Physical', 'OpSec'],
+    background:
+      'Physical security specialist with utilities and critical-facility assessment experience.',
+    bio:
+      'Executes rehearsed entries, bypass, and access verification with strict governance.',
+    creds: ['Lock/Bypass', 'Route Rehearsals'],
+    certs: ['PNPT']
+  },
+  {
+    name: 'Mika S.',
+    role: 'Social Engineering',
+    focus: ['Human', 'OSINT'],
+    background:
+      'Human-factors and OSINT practitioner crafting policy-aligned pretexts and escalation paths.',
+    bio:
+      'Designs credible approaches; measures process resilience and awareness.',
+    creds: ['OSINT', 'Pretext Design'],
+    certs: ['GCTI']
+  },
+  {
+    name: 'Jordan H.',
+    role: 'Adversary Simulation',
+    focus: ['Cyber', 'Purple'],
+    background:
+      'Detection-minded red teamer; builds ATT&CK-mapped behaviors to uplift signals.',
+    bio:
+      'Partners with defenders during ops to tune detections and workflows.',
+    creds: ['ATT&CK Mapping', 'Detection Engineering'],
+    certs: ['GXPN']
+  },
+  {
+    name: 'Leo R.',
+    role: 'Residential Ops',
+    focus: ['Estate', 'IoT/Wi-Fi'],
+    background:
+      'EP-aligned residential assessor delivering practical mitigations and staff playbooks.',
+    bio:
+      'Reviews estate posture, segmentation, and lifestyle risk with privacy in mind.',
+    creds: ['EP Coordination', 'Segmentation Reviews'],
+    certs: ['OSEP']
+  },
+  {
+    name: 'Casey N.',
+    role: 'Intel & QA',
+    focus: ['Intel', 'QA'],
+    background:
+      'Threat intel and QA lead; keeps scenarios current, safe, and evidence-hygienic.',
+    bio:
+      'Maintains checklists, version control, and post-op validations.',
+    creds: ['Threat Intel', 'QA & Evidence Handling'],
+    certs: ['CISSP']
+  }
+];
+// Additional key roles to round out the team
+const extendedMembers = [
+  {
+    name: 'Priya K.',
+    role: 'Web Pentester',
+    focus: ['Web', 'AppSec'],
+    background: 'Finds exploitable flaws in web apps and APIs with evidence-driven reporting.',
+    bio: 'Performs modern web and API testing, from auth flows to logic abuse, with reproducible PoCs.',
+    creds: ['API Testing', 'Auth/Session Abuse'],
+    certs: ['OSWE']
+  },
+  {
+    name: 'Owen T.',
+    role: 'Cloud Security',
+    focus: ['Cloud', 'IAM'],
+    background: 'Builds cloud attack paths and validates guardrails across identity and workload layers.',
+    bio: 'Maps misconfig-to-compromise chains and recommends pragmatic hardening for AWS/Azure.',
+    creds: ['IAM Review', 'Attack Path Mapping'],
+    certs: ['AZ-500', 'AWS-Sec']
+  },
+  {
+    name: 'Nina L.',
+    role: 'Mobile Security',
+    focus: ['iOS', 'Android'],
+    background: 'Assesses mobile apps for privacy, transport security, and secure storage.',
+    bio: 'Performs static/dynamic analysis with device and backend considerations.',
+    creds: ['Runtime Analysis', 'Secure Storage Review'],
+    certs: ['GMOB']
+  },
+  {
+    name: 'Felix M.',
+    role: 'RedOps Engineer',
+    focus: ['Tradecraft', 'Infrastructure'],
+    background: 'Builds covert infrastructure, tooling, and operator workflows with strict OpSec.',
+    bio: 'Delivers stable, low-noise infrastructure and custom tools for campaigns.',
+    creds: ['OPSEC Tooling', 'C2 Engineering'],
+    certs: ['OSCP']
+  },
+  {
+    name: 'Brooke D.',
+    role: 'Physical Surveillance',
+    focus: ['Recon', 'Surveillance'],
+    background: 'Plans and executes discrete recon to de-risk routes and timings.',
+    bio: 'Conducts observation with safety, legal, and deconfliction front-of-mind.',
+    creds: ['Route Recon', 'Low-Profile Ops'],
+    certs: []
+  },
+  {
+    name: 'Taylor G.',
+    role: 'IR Liaison',
+    focus: ['IR', 'Purple'],
+    background: 'Coordinates with IR and blue teams to ensure signal-rich operations and clear handoffs.',
+    bio: 'Bridges ops and defense; tunes detections and documents workflows.',
+    creds: ['Incident Handoffs', 'Detection Tuning'],
+    certs: ['GCFA']
+  }
+];
+
+const TeamGrid = ({ members = [...realisticMembers, ...extendedMembers] }) => {
   const [open, setOpen] = useState(null);
   return (
     <div className="relative">

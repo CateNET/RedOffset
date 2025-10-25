@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Logo from './Logo.jsx';
 
 const navItems = [
   { name: 'Home', to: '/' },
@@ -21,10 +22,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-night/80">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         <NavLink to="/" className="group flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-          <div className="flex h-10 w-10 items-center justify-center rounded border border-ember/60 bg-steel/60">
-            <span className="sr-only">RedOffset</span>
-            <span className="font-mono text-lg text-ember">RO</span>
-          </div>
+          <Logo />
           <span className="glitch font-mono text-2xl font-semibold text-zinc-100" data-text="RedOffset">
             RedOffset
           </span>

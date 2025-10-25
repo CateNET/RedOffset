@@ -3,7 +3,7 @@ import { PauseIcon, PlayIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion';
 
 // Pro breach path visualizer
-// Props: { steps: { label: string, detail?: string }[], title?: string }
+// Props: { steps: { label: string, detail?: string, objective?: string, actions?: string[], signals?: string[], artifacts?: string[], tags?: { mitre?: string[], nist?: string[], cis?: string[] } }[], title?: string }
 const BreachPath = ({ steps = [], title = 'Attack Path' }) => {
   const width = 820;
   const height = 320;
@@ -148,7 +148,9 @@ const BreachPath = ({ steps = [], title = 'Attack Path' }) => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2 + i * 0.05, type: 'spring', stiffness: 200, damping: 18 }}
-              />
+              >
+                <title>{steps[i]?.label}{steps[i]?.objective ? ` — ${steps[i].objective}` : ''}</title>
+              </motion.circle>
               <text x={p.x} y={p.y - 18} textAnchor="middle" className="fill-zinc-400" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
                 {steps[i]?.label ?? `Step ${i + 1}`}
               </text>
@@ -206,6 +208,40 @@ const BreachPath = ({ steps = [], title = 'Attack Path' }) => {
                   <li key={i}>{s}</li>
                 ))}
               </ul>
+            </div>
+          )}
+          {steps[active].tags && (
+            <div className="mt-3 grid gap-3 sm:grid-cols-3">
+              {steps[active].tags.mitre?.length ? (
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">MITRE ATT&CK</p>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {steps[active].tags.mitre.map((t) => (
+                      <span key={t} className="rounded border border-zinc-800 bg-black/30 px-2 py-0.5 text-[11px] text-zinc-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {steps[active].tags.nist?.length ? (
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">NIST 800-53</p>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {steps[active].tags.nist.map((t) => (
+                      <span key={t} className="rounded border border-zinc-800 bg-black/30 px-2 py-0.5 text-[11px] text-zinc-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {steps[active].tags.cis?.length ? (
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">CIS Controls</p>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {steps[active].tags.cis.map((t) => (
+                      <span key={t} className="rounded border border-zinc-800 bg-black/30 px-2 py-0.5 text-[11px] text-zinc-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
           {steps[active].detail && !steps[active].objective && (
