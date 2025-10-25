@@ -12,7 +12,7 @@ const Footer = () => {
             <p className="font-mono text-lg text-zinc-200">RedOffset: Before They Do</p>
           </div>
           <p className="text-sm text-zinc-400">
-            We partner with executive leadership and security teams to expose blind spots across digital, physical, and human vectors.
+            RedOffset conducts realistic red team campaigns across cyber, facility, and human vectors to reveal true risk. Governed, rehearsed, and backed by proof.
           </p>
         </div>
         <div className="flex flex-1 flex-col gap-10 text-sm uppercase tracking-[0.3em] md:flex-row md:justify-end">
